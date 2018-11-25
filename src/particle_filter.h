@@ -72,6 +72,14 @@ public:
 	 */
 	void prediction(double delta_t, double std_pos[], double velocity, double yaw_rate);
 	
+	// it is an inline function in hopes of increasing speed
+	inline LandmarkObs transformObservation(Particle particle, LandmarkObs obs);
+
+	// it is an inline function in hopes of increasing speed
+	inline double multiVarGaussian(double landmark_x, double landmark_y,
+								   double std_x, double std_y,
+								   double obs_x, double obs_y);
+
 	/**
 	 * dataAssociation Finds which observations correspond to which landmarks (likely by using
 	 *   a nearest-neighbors data association).
